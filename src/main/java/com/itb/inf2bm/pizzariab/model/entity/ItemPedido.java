@@ -1,10 +1,19 @@
 package com.itb.inf2bm.pizzariab.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "ItemPedido")
 public class ItemPedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private int quantidadeItem;
-    private boolean codStatus;
+    @Column(columnDefinition = "decimal(5,2)", nullable = false)
     private double valorUnitario;
+    private boolean codStatus;
 
     public Long getId() {
         return id;

@@ -1,12 +1,25 @@
 package com.itb.inf2bm.pizzariab.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Produto")
 public class Produto {
+
+    @Id     //PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto-Incremeto SEQUENCIAL de 1 em 1
     private Long id;
+    @Column(length = 100, nullable = false) // length: "tamanho máximo", nullable: (true) -> NULL (false) -> NOT NULL
     private String nome;
+    @Column(length = 45, nullable = true)
     private String tipo;
+    @Column(length = 255, nullable = true) // OBS: VALOR DA PROPRIEDADE "CINZA" SIGNIFICA QUE O VALOR É PADRÃO, DISPENSÁVEL O USO
     private String descricao;
+    @Column(nullable = true, columnDefinition = "decimal(5,2)")
     private double valorCompra;
+    @Column(nullable = true, columnDefinition = "decimal(5,2)")
     private double valorVenda;
+    @Column(nullable = true)
     private int quantidadeEstoque;
     private boolean codStatus;
 

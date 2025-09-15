@@ -1,8 +1,17 @@
 package com.itb.inf2bm.pizzariab.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Telefone")
 public class Telefone {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private char ddd;
+    @Column(length = 5, nullable = false)
+    private String ddd;
+    @Column(length = 15, nullable = false)
     private String numero;
     private boolean codStatus;
 
@@ -14,11 +23,11 @@ public class Telefone {
         this.id = id;
     }
 
-    public char getDdd() {
+    public String getDdd() {
         return ddd;
     }
 
-    public void setDdd(char ddd) {
+    public void setDdd(String ddd) {
         this.ddd = ddd;
     }
 
